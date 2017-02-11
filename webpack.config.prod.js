@@ -43,7 +43,10 @@ export default {
         minifyCSS: true,
         minifyURLs: true
       },
-      inject: true
+      inject: true,
+      // Properties you define here are available in index.html
+      // using htmlWebpackPlugin.option.varName.
+      trackJSToken: '2e69fce59d6844d19ac62705cb3c4f92'
     }),
     // Eliminate duplicate packages when generating bundle
     new webpack.optimize.DedupePlugin(),
@@ -53,7 +56,7 @@ export default {
   module: {
     loaders: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap')}
+      {test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap') }
     ]
   }
 }
